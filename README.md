@@ -1,4 +1,4 @@
-# nbody-problem
+# N-Body problem
 
 Simple demonstration of the N-Body problem with the 3 inner most planets in the Milky Way, along with Earth's moon and the Sun. 
 ## Description
