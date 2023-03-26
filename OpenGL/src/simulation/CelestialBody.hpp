@@ -1,9 +1,11 @@
 #ifndef CELESTIAL
 #define CELESTIAL
+
 #include <vector>
 #include <iostream>
 #include <array>
 #include <type_traits>
+
 #include "VectorFunctions.hpp"
 
 extern const double G;

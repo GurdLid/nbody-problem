@@ -48,7 +48,7 @@
     <ClCompile Include="..\Dependencies\imgui\imgui_tables.cpp">
       <Filter>Source Files\imgui</Filter>
     </ClCompile>
-    <ClCompile Include="src\InnerPlanets.cpp">
+    <ClCompile Include="src\InnerPlanetsUI.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\simulation\CelestialBody.cpp">
@@ -61,6 +61,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\simulation\VectorFunctions.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\simulation\Simulate.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -92,7 +95,7 @@
     <ClInclude Include="..\Dependencies\imgui\imgui.h">
       <Filter>Header Files\imgui</Filter>
     </ClInclude>
-    <ClInclude Include="src\InnerPlanets.h">
+    <ClInclude Include="src\InnerPlanetsUI.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\simulation\CelestialBody.hpp">
@@ -108,6 +111,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\simulation\VectorFunctions.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\simulation\Simulate.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

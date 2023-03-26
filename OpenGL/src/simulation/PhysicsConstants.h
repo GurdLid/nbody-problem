@@ -25,10 +25,10 @@ namespace PhysicsConstants
     constexpr double mercury_sun_r0 = 57.9e6;
     constexpr double venus_sun_r0 = 108.2e6;
 
-    double moon_T0 = pow(((4.0*pow(M_PI,2.0)*pow(moon_earth_r0,3.0))/(G*earthMass)),0.5);
-    double earth_T0 = pow(((4.0*pow(M_PI,2.0)*pow(earth_sun_r0,3.0))/(G*sunMass)),0.5);
-    double mercury_T0 = pow(((4.0*pow(M_PI,2.0)*pow(mercury_sun_r0,3.0))/(G*sunMass)),0.5);
-    double venus_T0 = pow(((4.0*pow(M_PI,2.0)*pow(venus_sun_r0,3.0))/(G*sunMass)),0.5);
+    const double moon_T0 = pow(((4.0*pow(M_PI,2.0)*pow(moon_earth_r0,3.0))/(G*earthMass)),0.5);
+    const double earth_T0 = pow(((4.0*pow(M_PI,2.0)*pow(earth_sun_r0,3.0))/(G*sunMass)),0.5);
+    const double mercury_T0 = pow(((4.0*pow(M_PI,2.0)*pow(mercury_sun_r0,3.0))/(G*sunMass)),0.5);
+    const double venus_T0 = pow(((4.0*pow(M_PI,2.0)*pow(venus_sun_r0,3.0))/(G*sunMass)),0.5);
 }
 
 #endif //PHYSICS_CONSTANTS

@@ -164,9 +164,10 @@
     <ClCompile Include="..\Dependencies\imgui\imgui_widgets.cpp" />
     <ClCompile Include="src\application.cpp" />
     <ClCompile Include="src\glad.c" />
-    <ClCompile Include="src\InnerPlanets.cpp" />
+    <ClCompile Include="src\InnerPlanetsUI.cpp" />
     <ClCompile Include="src\simulation\CelestialBody.cpp" />
     <ClCompile Include="src\simulation\NBodyInterface.cpp" />
+    <ClCompile Include="src\simulation\Simulate.cpp" />
     <ClCompile Include="src\simulation\SymplecticEuler.cpp" />
     <ClCompile Include="src\simulation\VectorFunctions.cpp" />
   </ItemGroup>
@@ -180,10 +181,11 @@
     <ClInclude Include="..\Dependencies\imgui\imstb_rectpack.h" />
     <ClInclude Include="..\Dependencies\imgui\imstb_textedit.h" />
     <ClInclude Include="..\Dependencies\imgui\imstb_truetype.h" />
-    <ClInclude Include="src\InnerPlanets.h" />
+    <ClInclude Include="src\InnerPlanetsUI.hpp" />
     <ClInclude Include="src\simulation\CelestialBody.hpp" />
     <ClInclude Include="src\simulation\NBodyInterface.hpp" />
     <ClInclude Include="src\simulation\PhysicsConstants.h" />
+    <ClInclude Include="src\simulation\Simulate.hpp" />
     <ClInclude Include="src\simulation\SymplecticEuler.hpp" />
     <ClInclude Include="src\simulation\VectorFunctions.hpp" />
   </ItemGroup>

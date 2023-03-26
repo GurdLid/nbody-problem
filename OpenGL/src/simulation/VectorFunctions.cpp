@@ -11,3 +11,10 @@ double VectorFunctions::CalculateNorm(int p, const std::vector<double>& vector)
     norm = pow(sum, 1.0/((double)(p)));
     return norm;
 }
+
+double VectorFunctions::roundDouble(double x, int n)
+{
+    std::stringstream ss;
+    ss << std::scientific << std::setprecision(n - 1) << x;
+    return stod(ss.str());
+}

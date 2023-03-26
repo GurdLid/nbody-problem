@@ -1,7 +1,5 @@
 #ifndef NBODY_INTER
 #define NBODY_INTER
-#include "CelestialBody.hpp"
-#include "VectorFunctions.hpp"
 
 #include <memory>
 #include <string>
@@ -9,6 +7,9 @@
 #include <algorithm>
 #include <fstream>
 #include <cassert>
+
+#include "CelestialBody.hpp"
+#include "VectorFunctions.hpp"
   
 extern const double G;
 

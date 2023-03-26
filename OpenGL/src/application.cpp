@@ -1,14 +1,14 @@
 #include "imgui.h"
 #include "imgui_impl_glfw.h"
 #include "imgui_impl_opengl3.h"
-
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
+
 #include <iostream>
 #include <array>
 #include <memory>
 
-#include "../src/InnerPlanets.h"
+#include "../src/InnerPlanetsUI.hpp"
 
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height); //resizing render size prototype
@@ -163,6 +163,15 @@ int main(void)
 
     std::vector<std::shared_ptr<std::pair<std::string, bool>>> CelestialBodies(5);
     CelestialBodies = { Moon,Earth,Sun,Mercury,Venus };
+    std::vector<double> defaultPositions(15);
+    defaultPositions = { -27440663.8165208e3, 144729193.335639e3, 24808.236184314e3,
+                        -27067884.6257174e3, 144587718.527863e3, -1969.59490492195e3,
+                        0.0, 0.0, 0.0,
+                        -5.912134174085139e10, -1.122619296617797e10, 4.544945202497724e9,
+                        -7.094183693077585e10, -8.250232669178858e10, 2.956505086981911e9 };
+
+    std::vector<double> initialPositions(15);
+    initialPositions = defaultPositions;
 
     //Changing the colour of the triangles
     float color[4] = { 0.8f,0.3f,0.02f,1.0f};
@@ -190,7 +199,8 @@ int main(void)
 
             //glDrawArrays(GL_TRIANGLES, 0, 3);
       
-        InnerPlanetsUI::RenderUI(CelestialBodies);
+
+        InnerPlanetsUI::RenderUI(CelestialBodies, initialPositions);
 
         glUniform4f(glGetUniformLocation(shaderProgram, "color"), color[0], color[1], color[2], color[3]);
 

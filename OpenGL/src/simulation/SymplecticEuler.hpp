@@ -1,5 +1,6 @@
 #ifndef SYMPLECTIC_EULER
 #define SYMPLECTIC_EULER
+
 #include "NBodyInterface.hpp"
 
 extern double const G;
