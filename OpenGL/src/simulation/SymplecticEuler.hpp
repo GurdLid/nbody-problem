@@ -10,7 +10,7 @@ class SymplecticEuler
     public:
         SymplecticEuler(NBodyInterface& NBodyProblem, const double initialTime, const double finalTime, const double stepSize,
                             const std::string outputFileName="output.dat", const int saveGap = 1, const int printGap = 1);
-        void Solve();
+        std::vector<double> Solve();
 
     protected:
         int mSaveGap;

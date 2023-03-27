@@ -15,8 +15,7 @@
 namespace Simulate
 {
 	std::vector<std::shared_ptr<CelestialBody>> InitialiseBodies(std::vector<std::shared_ptr<std::pair<std::string, bool>>> CelestialBodies, int resultsRows);
-
-	//void SymplecticEulerSim(std::vector<std::shared_ptr<std::pair<std::string, bool>>> CelestialBodies, int Results_Rows, int Steps);
+	std::vector<double> SymplecticEulerSim(std::vector<std::shared_ptr<std::pair<std::string, bool>>> CelestialBodies, int Results_Rows, int Steps);
 }
 
 #endif // SIMULATE

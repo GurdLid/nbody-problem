@@ -15,6 +15,8 @@ namespace VectorFunctions
     double CalculateNorm(int p, const std::vector<double>& vector); //Calculate vector norm
 
     double roundDouble(double x, int n); //Rounding a double to n sig figs
+
+    std::string toScientificString(double x);
 }
 
 #endif // VECTOR_FUNC

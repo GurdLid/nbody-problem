@@ -18,3 +18,14 @@ double VectorFunctions::roundDouble(double x, int n)
     ss << std::scientific << std::setprecision(n - 1) << x;
     return stod(ss.str());
 }
+
+std::string VectorFunctions::toScientificString(double x)
+{
+    // Create an output string stream
+    std::ostringstream streamObj;
+    //Add double to stream
+    streamObj << x;
+    // Get string from output string stream
+    std::string strObj = streamObj.str();
+    return strObj;
+}

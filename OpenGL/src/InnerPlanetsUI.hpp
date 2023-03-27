@@ -14,7 +14,7 @@
 
 namespace InnerPlanetsUI
 {
-    void RenderUI(std::vector<std::shared_ptr<std::pair<std::string, bool>>> &CelestialBodies, std::vector<double> &initialPositions);
+    void RenderUI(std::vector<std::shared_ptr<std::pair<std::string, bool>>> &CelestialBodies, std::vector<double> &initialPositions, std::vector<double>& finalPositions);
 }
 
 

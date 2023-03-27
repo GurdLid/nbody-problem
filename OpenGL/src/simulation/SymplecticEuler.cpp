@@ -5,7 +5,7 @@ SymplecticEuler::SymplecticEuler(NBodyInterface &NBodyProblem, const double init
 {
 }
 
-void SymplecticEuler::Solve()
+std::vector<double> SymplecticEuler::Solve()
 {
     //Initialising variables and initial conditions
     const double mStepNumber = (mFinalTime - mInitialTime)/mStepSize;
@@ -47,18 +47,18 @@ void SymplecticEuler::Solve()
     if(mPrintGap<1000)
     {
     //Initial Header
-        std::cout << "\nFor the selected system, with t0 = "<< mInitialTime << ", T = " << mFinalTime << ", the symplectic Euler method for " << noOfBodies << " bodies gives:" << std::endl;
-        std::cout <<  "                          " << " x" << "                                  " << " v" << std::endl;
-        std::cout << "Initial positions:" << std::endl;
+        //std::cout << "\nFor the selected system, with t0 = "<< mInitialTime << ", T = " << mFinalTime << ", the symplectic Euler method for " << noOfBodies << " bodies gives:" << std::endl;
+        //std::cout <<  "                          " << " x" << "                                  " << " v" << std::endl;
+        //std::cout << "Initial positions:" << std::endl;
         for(int i = 0; i<noOfBodies;i++)
         {
-            std::cout << std::scientific << "Body " << i+1 << " : " << (xOld)[i] << " " << (yOld)[i] << " " << (zOld)[i] << "   " << (vOld_x)[i] << " " << (vOld_y)[i] << " " << (vOld_z)[i] << std::endl;
+            //std::cout << std::scientific << "Body " << i+1 << " : " << (xOld)[i] << " " << (yOld)[i] << " " << (zOld)[i] << "   " << (vOld_x)[i] << " " << (vOld_y)[i] << " " << (vOld_z)[i] << std::endl;
         }
-        std::cout << std::endl;
+        //std::cout << std::endl;
     }
     else
     {
-        std::cout << "n = " << noOfBodies << std::endl;
+        //std::cout << "n = " << noOfBodies << std::endl;
     }
     int i=1; //Starting from the first non zero time
     while(i<=mStepNumber) //Until N_t + 1 points
@@ -130,6 +130,9 @@ void SymplecticEuler::Solve()
         i++;
     }
     writeFile.close();
+
+    std::vector<double> OutputPositions(3*noOfBodies); //output positions vector
+
     if(collision==false)
     {
         if(mPrintGap<1000)
@@ -137,8 +140,15 @@ void SymplecticEuler::Solve()
             std::cout << "Final state:" << std::endl;
             for(int i = 0; i<noOfBodies;i++)
             {
-            std::cout << std::scientific << "Body " << i+1 << " : " << (x)[i] << " " << (y)[i] << " " << (z)[i] << "   " << (v_x)[i] << " " << (v_y)[i] << " " << (v_z)[i] <<std::endl;
+                std::cout << std::scientific << "Body " << i+1 << " : " << (x)[i] << " " << (y)[i] << " " << (z)[i] << "   " << (v_x)[i] << " " << (v_y)[i] << " " << (v_z)[i] <<std::endl;
+            }
+            for (int i = 0; i< noOfBodies; i++)
+            {
+                OutputPositions[3 * i] = (x)[i]; //Each body has three position co-ords
+                OutputPositions[3 * i + 1] = (y)[i];
+                OutputPositions[3 * i + 2] = (z)[i];
             }
         }
     }
+    return OutputPositions;
 }

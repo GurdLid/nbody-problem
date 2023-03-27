@@ -4,7 +4,7 @@ namespace InnerPlanetsUI
 {
    
 //-----------------------------------------------------------------------------------------------------------------------------------------------
-    void RenderUI(std::vector<std::shared_ptr<std::pair<std::string, bool>>>& CelestialBodies, std::vector<double> &initialPositions)
+    void RenderUI(std::vector<std::shared_ptr<std::pair<std::string, bool>>>& CelestialBodies, std::vector<double> &initialPositions, std::vector<double>& finalPositions)
     {
         struct CustomConstraints
         {
@@ -142,16 +142,17 @@ namespace InnerPlanetsUI
             ImGui::PopFont();
 
             //std::vector<double> InitialPositionsp(15); //where (i,j) = (3i+j)
-            for (int row = 0; row < 5; row++)
+            for (size_t row = 0; row < 5; row++)
             {
                 ImGui::TableNextRow();
                 ImGui::TableNextColumn();
                 ImGui::Checkbox(CelestialBodies[row]->first.c_str(), &CelestialBodies[row]->second);
                 ImGui::TableNextColumn();
-                std::string test = (std::to_string(VectorFunctions::roundDouble((initialPositions[3 * row]), 4)));
-                ImGui::Text(test.c_str());
-                ImGui::TableNextColumn(); // need ostream or something 
-
+                ImGui::Text((VectorFunctions::toScientificString(VectorFunctions::roundDouble(initialPositions[3 * row], 3))).c_str());
+                ImGui::TableNextColumn();
+                ImGui::Text((VectorFunctions::toScientificString(VectorFunctions::roundDouble(initialPositions[3 * row+1], 3))).c_str());
+                ImGui::TableNextColumn();
+                ImGui::Text((VectorFunctions::toScientificString(VectorFunctions::roundDouble(initialPositions[3 * row+2], 3))).c_str());
             }
 
             ImGui::EndTable();
@@ -234,11 +235,11 @@ namespace InnerPlanetsUI
                         ImGui::TableNextColumn();
                         ImGui::Text(CelestialBodies[row]->first.c_str());
                         ImGui::TableNextColumn();
-                        ImGui::Text("x");
+                        ImGui::Text((VectorFunctions::toScientificString(VectorFunctions::roundDouble(finalPositions[3 * row], 3))).c_str());
                         ImGui::TableNextColumn();
-                        ImGui::Text("y %d");
+                        ImGui::Text((VectorFunctions::toScientificString(VectorFunctions::roundDouble(finalPositions[3 * row + 1], 3))).c_str());
                         ImGui::TableNextColumn();
-                        ImGui::Text("z %d");
+                        ImGui::Text((VectorFunctions::toScientificString(VectorFunctions::roundDouble(finalPositions[3 * row + 2], 3))).c_str());
                     }
                 }
                 ImGui::EndTable();

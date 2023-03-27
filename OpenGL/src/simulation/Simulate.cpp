@@ -46,18 +46,12 @@ namespace Simulate
         }
         return InnerPlanets;
     }
- /*
-    void SymplecticEulerSim(std::vector<std::shared_ptr<std::pair<std::string, bool>>> CelestialBodies, int Results_Rows, int Steps)
+
+    std::vector<double> SymplecticEulerSim(std::vector<std::shared_ptr<std::pair<std::string, bool>>> CelestialBodies, int Results_Rows, int Steps)
     {
-        
+        auto InnerPlanets = InitialiseBodies(CelestialBodies, Results_Rows);
         std::unique_ptr<NBodyInterface> InnerPlanetInterface = std::make_unique<NBodyInterface>(InnerPlanets);
-
         std::unique_ptr<SymplecticEuler> InnerPlanetSolver = std::make_unique<SymplecticEuler>(*InnerPlanetInterface, 0, PhysicsConstants::earth_T0, PhysicsConstants::earth_T0 / Steps, "output_InnerPlanets.dat");
-        InnerPlanetSolver->Solve();
-
-
-        //std::vector<double> Output(3*Results_Rows);
-        //return Output;
+        return InnerPlanetSolver->Solve();
     }
-*/
 }
