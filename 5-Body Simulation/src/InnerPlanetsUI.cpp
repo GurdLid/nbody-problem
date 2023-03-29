@@ -102,7 +102,7 @@ namespace InnerPlanetsUI
         ImGui::SetNextWindowPos(window_pos, ImGuiCond_Always, window_pos_pivot);
 
 
-        ImGui::SetNextWindowBgAlpha(0.35f); // Transparent background
+        ImGui::SetNextWindowBgAlpha(0.85f); // Transparent background
         if (ImGui::Begin("Initial Positions", nullptr))
         {
             if (ImGui::BeginPopupContextWindow())
@@ -207,7 +207,7 @@ namespace InnerPlanetsUI
 
         //Results window
         //Sizing and position
-        ImGui::SetNextWindowSizeConstraints(ImVec2(500, 280), ImVec2(500, 280));
+        ImGui::SetNextWindowSizeConstraints(ImVec2(500, 200), ImVec2(500, 200));
         const int location_res = 2;
         const ImGuiViewport* viewport_res = ImGui::GetMainViewport();
         work_pos = viewport_res->WorkPos;
@@ -218,7 +218,7 @@ namespace InnerPlanetsUI
         window_pos_pivot.x = (location_res & 1) ? 1.0f : 0.0f;
         window_pos_pivot.y = (location_res & 2) ? 1.0f : 0.0f;
         ImGui::SetNextWindowPos(window_pos, ImGuiCond_Always, window_pos_pivot);
-        ImGui::SetNextWindowBgAlpha(0.35f); // Transparent background
+        ImGui::SetNextWindowBgAlpha(0.85f); // Transparent background
 
         if (clickedSim)
         {
@@ -268,7 +268,7 @@ namespace InnerPlanetsUI
         window_pos_pivot.x = (location_info & 1) ? 1.0f : 0.0f;
         window_pos_pivot.y = (location_info & 2) ? 1.0f : 0.0f;
         ImGui::SetNextWindowPos(window_pos, ImGuiCond_Always, window_pos_pivot);
-        ImGui::SetNextWindowBgAlpha(0.35f); // Transparent background
+        ImGui::SetNextWindowBgAlpha(0.85f); // Transparent background
 
         ImGui::Begin("Information");
         ImGui::BeginGroup();

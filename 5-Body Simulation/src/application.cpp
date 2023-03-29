@@ -22,7 +22,7 @@ int main(void)
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE); //using core profile
 
     //GLFW window creation-------------------------------------------------------
-    GLFWwindow* window = glfwCreateWindow(800, 600, "5-Body Simulation", NULL, NULL);
+    GLFWwindow* window = glfwCreateWindow(900, 650, "5-Body Simulation", NULL, NULL);
     if (window == NULL)
     {
         std::cout << "Failed to create GLFW window" << std::endl;
@@ -82,7 +82,7 @@ int main(void)
         processInput(window);
 
         //Specifiying background colour
-        glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+        glClearColor(0.1f, 0.3f, 0.3f, 0.2f);
         //Clean back buffer and assign new colour to it
         glClear(GL_COLOR_BUFFER_BIT);
 
