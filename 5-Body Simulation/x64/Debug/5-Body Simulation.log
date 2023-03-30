@@ -1,3 +1,0 @@
-﻿  application.cpp
-LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
-  5-Body Simulation.vcxproj -> C:\Users\Gurdeep\Desktop\dev\OpenGL\5-Body Sim\x64\Debug\5-Body Simulation.exe
