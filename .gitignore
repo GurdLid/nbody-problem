@@ -1,5 +1,5 @@
-bin/
-obj/
+**bin/
+**obj/
 
 # Linux project files
 Makefile
@@ -7,13 +7,13 @@ libs/Makefile
 **/*.make
 
 # Windows project files
-**/*.sln
-**/*.vcxproj
-**/*.vcxproj.user
-**/*.vcxproj.filters
 .vs/
+*.sln
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
 
 # ImGui ini file
-imgui.ini
+*imgui.ini
 
 .vscode

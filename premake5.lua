@@ -1,7 +1,7 @@
 workspace "5BodySim"
-    configurations { "Debug", "Release" }
+    architecture "x64"
     startproject "5BodySim"
-
+    configurations { "Debug", "Release" }
     flags { "MultiProcessorCompile" }
 
     filter "configurations:Debug"
@@ -17,30 +17,4 @@ workspace "5BodySim"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
-project "5BodySim"
-    kind "ConsoleApp"
-    language "C++"
-    cppdialect "C++latest"
-	architecture "x64"
-
-	targetdir("bin/")
-	objdir("bin-int/")
-
-    includedirs { "include/", "libs/glad/include/", "libs/glfw/include/", "libs/glm/", "libs/imgui/", "libs/imgui/examples" }
-    
-    files { "src/*.cpp" }
-
-    links { "GLFW", "GLM", "GLAD", "ImGui" }
-
-    filter "system:linux"
-        links { "dl", "pthread" }
-
-        defines { "_X11" }
-
-    filter "system:windows"
-        defines { "_WINDOWS" }
-
-include "libs/glfw.lua"
-include "libs/glad.lua"
-include "libs/glm.lua"
-include "libs/imgui.lua"
+include "5BodySim"
