@@ -10,47 +10,23 @@ The N-Body problem can be represented as a system of Initial Value Problems (IVP
 
 ### Dependencies
 
-* Describe any prerequisites, libraries, OS version, etc., needed before installing program.
-* ex. Windows 10
-
-### Installing
-
-* How/where to download your program
-* Any modifications needed to be made to files/folders
+Dependencies are all within the repository. These are:
+* GLFW 
+* Glad
+* ImGui
 
 ### Executing program
 
-* How to run the program
-* Step-by-step bullets
-```
-code blocks for commands
-```
+For Windows:
+* Simply run the "Win-Premake.bat file 
+* Open the "5BodySim.sln" file in Visual Studio
 
-## Help
 
-Any advise for common problems or issues.
-```
-command to run if program contains helper info
-```
 
-## Authors
-
-Contributors names and contact info
-
-ex. Dominique Pizzie  
-ex. [@DomPizzie](https://twitter.com/dompizzie)
-
-## Version History
-
-* 0.2
-    * Various bug fixes and optimizations
-    * See [commit change]() or See [release history]()
-* 0.1
-    * Initial Release
 
 ## License
 
-This project is licensed under the [NAME HERE] License - see the LICENSE.md file for details
+This project is licensed under the Apache 2.0 License - see the LICENSE.md file for details
 
 ## Acknowledgments
 
