@@ -18,7 +18,7 @@ Dependencies are all within the repository. These are:
 ### Executing program
 
 For Windows:
-* Simply run the "Win-Premake.bat file 
+* Simply run the "Win-Premake.bat" file 
 * Open the "5BodySim.sln" file in Visual Studio
 
 
