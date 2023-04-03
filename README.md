@@ -9,7 +9,7 @@ The N-Body problem can be represented as a system of Initial Value Problems (IVP
 ## Getting Started
 
 ### Dependencies
-[Premake5](https://premake.github.io/download/) is required to build the project.
+[Premake5](https://premake.github.io/download/) is required to build the project.  
 Dependencies are all within the repository. These are:
 * GLFW 
 * Glad
