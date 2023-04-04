@@ -19,10 +19,14 @@ Dependencies are all within the repository. These are:
 
 For Windows:
 * Simply run the "Win-Premake.bat" file 
-* Open the "5BodySim.sln" file in Visual Studio
+* Open the "5BodySim.sln" file in Visual Studio  
 
-
-
+For Linux:
+* Open Terminal and enter the following commands in the project directory:
+```
+premake5 gmake
+make -j$(nproc)
+```
 
 ## License
 
