@@ -40,26 +40,6 @@ std::vector<double> SymplecticEuler::Solve()
 
     bool collision = false;
 
-    //std::ofstream writeFile; // Define output stream
-    //writeFile.open(mOutputFileName); //Open file
-    //assert(writeFile.is_open()); // Check file is open
-    //writeFile << noOfBodies << " " << 0 << " " << 0 << " " << 0 << " " << 0 << " " << 0 << " " << 0 << " " << std::endl;
-    if(mPrintGap<1000)
-    {
-    //Initial Header
-        //std::cout << "\nFor the selected system, with t0 = "<< mInitialTime << ", T = " << mFinalTime << ", the symplectic Euler method for " << noOfBodies << " bodies gives:" << std::endl;
-        //std::cout <<  "                          " << " x" << "                                  " << " v" << std::endl;
-        //std::cout << "Initial positions:" << std::endl;
-        for(int i = 0; i<noOfBodies;i++)
-        {
-            //std::cout << std::scientific << "Body " << i+1 << " : " << (xOld)[i] << " " << (yOld)[i] << " " << (zOld)[i] << "   " << (vOld_x)[i] << " " << (vOld_y)[i] << " " << (vOld_z)[i] << std::endl;
-        }
-        //std::cout << std::endl;
-    }
-    else
-    {
-        //std::cout << "n = " << noOfBodies << std::endl;
-    }
     int i=1; //Starting from the first non zero time
     while(i<=mStepNumber) //Until N_t + 1 points
     {
@@ -97,23 +77,7 @@ std::vector<double> SymplecticEuler::Solve()
             (y)[i] = (x_i)[1];
             (z)[i] = (x_i)[2];  
         }
-        if(i%(mPrintGap+1)==0)
-        {
-            if(mPrintGap<1000) //code to print the state at time t if ever required
-            {
-                //std::cout << std::scientific << t << " " << (x)[0] << " " << (y)[0] << " " << (z)[0] << " " << (x)[1] << " " << (y)[1] << " " << (z)[1] << std::endl;
-            }
-        }
-        if(i%(mSaveGap)==0)
-        {
-            for(int i = 0; i<noOfBodies;i++)
-            {
-                if(mPrintGap<1000) //writing current state to file
-                {
-                    //writeFile << t << " " << (x)[i] << " " << (y)[i] << " " << (z)[i] << "   " << (v_x)[i] << " " << (v_y)[i] << " " << (v_z)[i] <<std::endl;
-                }
-            }
-        }
+
         (*mNBody).DetectCollision(x,y,z,radii,t,collision); //Collision testing for the bodies
         if(collision==true) //exiting code if collision is detected
         {
@@ -129,25 +93,16 @@ std::vector<double> SymplecticEuler::Solve()
 
         i++;
     }
-    //writeFile.close();
 
     std::vector<double> OutputPositions(3*noOfBodies); //output positions vector
 
     if(collision==false)
     {
-        if(mPrintGap<1000)
+        for (int i = 0; i< noOfBodies; i++)
         {
-            //std::cout << "Final state:" << std::endl;
-            for(int i = 0; i<noOfBodies;i++)
-            {
-                //std::cout << std::scientific << "Body " << i+1 << " : " << (x)[i] << " " << (y)[i] << " " << (z)[i] << "   " << (v_x)[i] << " " << (v_y)[i] << " " << (v_z)[i] <<std::endl;
-            }
-            for (int i = 0; i< noOfBodies; i++)
-            {
-                OutputPositions[3 * i] = (x)[i]; //Each body has three position co-ords
-                OutputPositions[3 * i + 1] = (y)[i];
-                OutputPositions[3 * i + 2] = (z)[i];
-            }
+            OutputPositions[3 * i] = (x)[i]; //Each body has three position co-ords
+            OutputPositions[3 * i + 1] = (y)[i];
+            OutputPositions[3 * i + 2] = (z)[i];
         }
     }
     return OutputPositions;

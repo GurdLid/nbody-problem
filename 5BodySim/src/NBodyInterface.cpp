@@ -157,17 +157,3 @@ std::vector<double> NBodyInterface::GetVelocity(int axis) const
     }
 }
 
-/* void singleBodyComputeF(std::vector<double> &xj, std::vector<double> &xj_m_xi, std::vector<double> xi, std::vector<double> &f_single, std::vector<double> &f, double yStates_i, double xStates_i, double zStates_i, double mMasses_i)
-{
-    xj[0] = xStates_i;
-    xj[1] = yStates_i;
-    xj[2] = zStates_i;
-    std::transform(xj.begin(),xj.end(),xi.begin(),xj_m_xi.begin(),std::minus<double>());
-    double mass = mMasses_i;
-    std::transform(xj_m_xi.begin(),xj_m_xi.end(),f_single.begin(),[&mass](auto& c){return c*(G*mass);});
-    double denom = MathsFunctions::CalculateNorm(2,xj_m_xi);
-    denom = pow(denom,3.0);
-
-    std::transform(f_single.begin(),f_single.end(),f_single.begin(),[&denom](auto& c){return c*(1.0/denom);});
-    std::transform(f.begin(),f.end(),f_single.begin(),f.begin(),std::plus<double>()); 
-} */
