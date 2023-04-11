@@ -15,7 +15,7 @@ Dependencies are all within the repository. These are:
 * Glad
 * ImGui
 
-### Executing program
+### Building program
 
 For Windows:
 * Simply run the "Win-Premake.bat" file 
@@ -27,6 +27,10 @@ For Linux:
 premake5 gmake
 make -j$(nproc)
 ```
+
+## Notes
+The current state of the project implements a static simulation using all 5 celestial bodies. A dynamic simulation in accordance with the checkboxes is upcoming.
+
 
 ## License
 
