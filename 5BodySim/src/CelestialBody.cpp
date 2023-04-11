@@ -4,7 +4,7 @@ CelestialBody::CelestialBody()
 {
 }
 
-CelestialBody::CelestialBody(double x, double y, double z, double v_x, const double v_y, double v_z, double mass, double radius)
+CelestialBody::CelestialBody(const double x, const double y, const double z, const double v_x, const double v_y, const double v_z, const double mass, const double radius)
 : mMass(mass), mRadius(radius)
 {
     mPosition = {x,y,z};

@@ -14,10 +14,10 @@ class CelestialBody
 {
 public:
     //Constructor for doubles 
-    CelestialBody(double x, double y, double z, double v_x, const double v_y, double v_z, double mass, double radius);
+    CelestialBody(const double x, const double y, const double z, const double v_x, const double v_y, const double v_z, const double mass, const double radius);
     //Constructor for arrays/vectors 
     template<typename T>
-    CelestialBody(T pos, T vel, double mass, double radius)
+    CelestialBody(const T pos, const T vel, const double mass, const double radius)
         : mMass(mass), mRadius(radius)
     {
         if (std::is_same<T, std::vector<double>>::value || std::is_same<T, std::array<double,3>>::value )
