@@ -35,6 +35,7 @@ public:
     }
     ~CelestialBody();
 
+    //Get methods
     std::vector<double> GetPosition();
     std::vector<double> GetVelocity();
     double GetMass();
