@@ -289,6 +289,13 @@ namespace InnerPlanetsUI
                 ImGui::TextWrapped("The centre of the co-ordinate system is the initial position of the centre of the Sun, (0.0,0.0,0.0).");
                 ImGui::EndTabItem();
             }
+            if (ImGui::BeginTabItem("SSSP"))
+            {
+                ImGui::TextWrapped("SSSP stands for 'Single Source Shortest Path.");
+                ImGui::TextWrapped("The SSSP is one that considers the shortest path between a vertex on a graph and all other vertices. The algorithm used here is Dijkstra's algorithm.");
+                ImGui::TextWrapped("The rules for the SSSP in the context of this 5-Body simulation is that each celestial body is a vertex on a graph. You can only travel to the two nearest bodies (or verticies), so if you want to travel to a far away body you will have to make a stop at a different body beforehand.");
+                ImGui::EndTabItem();
+            }
             if (ImGui::BeginTabItem("Future work"))
             {
                 ImGui::TextWrapped("More features are in production. One of these is the graphical demonstration of the orbits of each celestial body via OpenGL. The velocities of each object, and a comaprison with tbe forward Euler method are also in the works.");
@@ -302,6 +309,53 @@ namespace InnerPlanetsUI
 
         ImGui::End();
 
+
+        //SSSP window---------------------------------------------------------------------------------------------------
+        //Sizing and position
+        ImGui::SetNextWindowSizeConstraints(ImVec2(270, 280), ImVec2(270, 280));
+        const int location_sssp = 3;
+        const ImGuiViewport* viewport_sssp = ImGui::GetMainViewport();
+        work_pos = viewport_sssp->WorkPos;
+        work_size = viewport_sssp->WorkSize;
+        window_pos, window_pos_pivot;
+        window_pos.x = (location_sssp & 1) ? (work_pos.x + work_size.x - PAD) : (work_pos.x + PAD);
+        window_pos.y = (location_sssp & 2) ? (work_pos.y + work_size.y - PAD) : (work_pos.y + PAD);
+        window_pos_pivot.x = (location_sssp & 1) ? 1.0f : 0.0f;
+        window_pos_pivot.y = (location_sssp & 2) ? 1.0f : 0.0f;
+        ImGui::SetNextWindowPos(window_pos, ImGuiCond_Always, window_pos_pivot);
+        ImGui::SetNextWindowBgAlpha(0.85f); // Transparent background
+
+        ImGui::Begin("Shortest Path");
+        ImGui::BeginGroup();
+        ImGui::BeginChild("item view", ImVec2(0, -ImGui::GetFrameHeightWithSpacing())); // Leave room for 1 line below us
+        ImGui::Separator();
+        if (ImGui::BeginTabBar("##Tabs", ImGuiTabBarFlags_None))
+        {
+            if (ImGui::BeginTabItem("Description"))
+            {
+                ImGui::TextWrapped("This is a simple model of the N-Body problem with the 3 inner most planets and their orbits of the Sun, along with Earth's moon.");
+                ImGui::TextWrapped("The N-Body problem is represented by a second order ODE IVP, and here solved by the symplectic Euler method.");
+                ImGui::EndTabItem();
+            }
+            if (ImGui::BeginTabItem("Data"))
+            {
+                ImGui::TextWrapped("All inital position and velocity data is sourced from JPL Horizons, dated 01/01/2005.");
+                ImGui::TextWrapped("The current time period for the simulation is the orbital period of the Earth, which is approximated as 3.16e7s");
+                ImGui::TextWrapped("The centre of the co-ordinate system is the initial position of the centre of the Sun, (0.0,0.0,0.0).");
+                ImGui::EndTabItem();
+            }
+            if (ImGui::BeginTabItem("Future work"))
+            {
+                ImGui::TextWrapped("More features are in production. One of these is the graphical demonstration of the orbits of each celestial body via OpenGL. The velocities of each object, and a comaprison with tbe forward Euler method are also in the works.");
+                ImGui::TextWrapped("Any feedback is appreciated.");
+                ImGui::EndTabItem();
+            }
+            ImGui::EndTabBar();
+        }
+        ImGui::EndChild();
+        ImGui::EndGroup();
+
+        ImGui::End();
 
 
     }
